@@ -1,0 +1,20 @@
+class Solution {
+    public int similarPairs(String[] words) {
+        int output =0;
+        Set<Character> sets[]= new Set[words.length];
+        for(int i =0 ; i<words.length ; i++){
+            sets[i] = new HashSet<>();
+            for(char ch : words[i].toCharArray()){
+                sets[i].add(ch);
+            }
+        }
+        for(int m = 0 ; m<words.length ; m++){
+            for(int p = m+1 ; p<words.length ; p++){
+                if(sets[m].equals(sets[p])){
+                    output +=1;
+                }
+            }
+        }
+        return output;
+    }
+}
