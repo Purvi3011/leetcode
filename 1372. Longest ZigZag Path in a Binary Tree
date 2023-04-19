@@ -1,0 +1,14 @@
+class Solution {
+    int max = 0 ;
+    public int longestZigZag(TreeNode root) {
+        longestZigZag(root,0,true);
+        longestZigZag(root,0,false);
+        return max;
+    }
+    public void longestZigZag(TreeNode root,int steps,boolean isLeft){
+        if(root == null) return ;
+        max = Math.max(max,steps);
+        longestZigZag(root.left,isLeft ? 1 : steps+1,true);
+        longestZigZag(root.right,isLeft ? steps+1 : 1,false);
+    }
+}
